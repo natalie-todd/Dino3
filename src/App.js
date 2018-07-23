@@ -4,7 +4,7 @@ import './App.css';
 
 import Header from './components/Header'
 import Jobdetails from './components/Jobdetails'
-// import Inputform from './components/Inputform'
+import Inputform from './components/Inputform'
 // import Preview from './components/Preview'
 import Footer from './components/Footer'
 
@@ -16,25 +16,30 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getJob()
+    this.getJob();
   }
 
   getJob = () => {
     return fetch("./listing.json")
       .then(response => response.json())
-      .then(data => this.setState({ data }));
+      .then(data => this.setState({
+        details: data
+      }))
   }
 
+  addDetails = data => {
+
+  }
   render() {
     return (
-        <main>
-          <Header />
-          <section id="job-details">
-            <h2>Job Details</h2>
-            <Jobdetails data={this.state.data} />
-            <h1 className="App-title">Welcome to React</h1>
-          </section>
-        </main>
+      <main>
+        <Header />
+        <section id="job-details">
+          <h2>Job Details</h2>
+          <Jobdetails data={this.state.data} />
+        </section>
+        <Inputform addDetails={this.addDetails} />
+      </main>
     );
   }
 }
