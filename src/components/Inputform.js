@@ -20,6 +20,7 @@ export default class Inputform extends React.Component {
                 value={this.state.title}
                 name='title'
                 onChange={this.handleChange} />
+                <input type='submit' name='submit' value='Submit' />
                 </form>
         )
     }

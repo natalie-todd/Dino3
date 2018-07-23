@@ -20,11 +20,9 @@ class App extends Component {
   }
 
   getJob = () => {
-    return fetch("./listing.json")
+    return fetch(dinoData)
       .then(response => response.json())
-      .then(data => this.setState({
-        details: data
-      }))
+      .then(data => this.setState({ data }));
   }
 
   addDetails = data => {
@@ -39,6 +37,9 @@ class App extends Component {
           <Jobdetails data={this.state.data} />
         </section>
         <Inputform addDetails={this.addDetails} />
+        <p id='message'></p>
+        <button type='submit'>Show Preview</button>
+        <Footer />
       </main>
     );
   }
