@@ -9,9 +9,7 @@ export default function Jobdetails({ data }) {
         data.map(data => (
           <li key={data.id}>
             <h4>{data.title}</h4>
-            {/* <small>{data.pay}</small> */}
             <p>{data.description}</p>
-            {/* <small>{`${data.interested.length} dinos are interested in this job`}</small> */}
           </li>
         ))}
     </ul >
