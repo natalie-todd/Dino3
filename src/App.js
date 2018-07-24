@@ -12,7 +12,7 @@ const dinoData = './listing.json'
 
 class App extends Component {
   state = {
-    data: []
+    application: []
   }
 
   componentDidMount() {
@@ -22,25 +22,28 @@ class App extends Component {
   getJob = () => {
     return fetch(dinoData)
       .then(response => response.json())
-      .then(data => this.setState({ data }));
+      .then(criteria => this.setState({ criteria }));
   }
 
-  addDetails = data => {
+  addDetails = criteria => {
 
   }
   render() {
     return (
+      <React.Fragment>
+      <Header />
       <main>
-        <Header />
         <section id="job-details">
           <h2>Job Details</h2>
-          <Jobdetails data={this.state.data} />
+          <Jobdetails criteria={this.state.criteria} />
         </section>
         <Inputform addDetails={this.addDetails} />
-        <p id='message'></p>
+
         <button type='submit'>Show Preview</button>
-        <Footer />
+        <section />
       </main>
+      <Footer />
+      </React.Fragment>
     );
   }
 }
