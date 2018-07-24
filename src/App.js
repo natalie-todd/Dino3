@@ -12,7 +12,8 @@ const dinoData = './listing.json'
 
 class App extends Component {
   state = {
-    application: []
+    application: [],
+    response: ['Your application was submitted!']
   }
 
   componentDidMount() {
@@ -25,24 +26,28 @@ class App extends Component {
       .then(criteria => this.setState({ criteria }));
   }
 
-  addDetails = criteria => {
-
+  onClick(e) {
+    e.preventDefault()
+    this.setState({
+      response: 'hi'
+    })
   }
+
   render() {
     return (
       <React.Fragment>
-      <Header />
-      <main>
-        <section id="job-details">
-          <h2>Job Details</h2>
-          <Jobdetails criteria={this.state.criteria} />
-        </section>
-        <Inputform addDetails={this.addDetails} />
-
-        <button type='submit'>Show Preview</button>
-        <section />
-      </main>
-      <Footer />
+        <Header />
+        <main>
+          <section id="job-details">
+            <h2>Job Details</h2>
+            <Jobdetails criteria={this.state.criteria} />
+          </section>
+          <Inputform />
+          <p>{this.onClick}</p>
+          <button type='submit'>Show Preview</button>
+          <section />
+        </main>
+        <Footer />
       </React.Fragment>
     );
   }
