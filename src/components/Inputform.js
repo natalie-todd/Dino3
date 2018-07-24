@@ -1,27 +1,26 @@
 import React from 'react'
 
-export default class Inputform extends React.Component {
-    state = {
-        shown: ['', 'Your application was submitted!']
-    }
-    
-    handleSubmit = (event) => {
-        event.preventDefault()
+class Inputform extends React.Component {
 
+    clicksubmit(e) {
+        e.preventDefault()
+        this.props.clickSubmit
+        console.log('hi')
     }
+
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form>
                 <label htmlFor='apply-here'>Apply Here:</label>
                 <textarea id='application-text'
                     rows='8'
-                    cols='100'/>
-                    {/* value={this.state.title}
-                    name='title'
-                    onChange={this.handleChange}  */}
-                <input onClick={this.toggle} id='submit' type='submit' value='Submit' />
+                    cols='100' />
+                <input onClick={(e) =>
+                    this.onItemClick(e)} id='submit' type='submit' value='Submit' />
             </form>
 
         )
     }
 }
+
+export default Inputform
