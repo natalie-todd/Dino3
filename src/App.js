@@ -5,7 +5,6 @@ import './App.css';
 import Header from './components/Header'
 import Jobdetails from './components/Jobdetails'
 import Inputform from './components/Inputform'
-// import Preview from './components/Preview'
 import Footer from './components/Footer'
 
 const dinoData = './listing.json'
@@ -38,7 +37,7 @@ class App extends Component {
       <React.Fragment>
         <Header />
         <main>
-          <section id="job-details">
+          <section id='job-details'>
             <h2>Job Details</h2>
             <Jobdetails criteria={this.state.criteria} />
           </section>
