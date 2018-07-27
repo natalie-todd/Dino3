@@ -12,7 +12,7 @@ const dinoData = './listing.json'
 class App extends Component {
   state = {
     application: [],
-    response: ['Your application was submitted!']
+    response: false,
   }
 
   componentDidMount() {
@@ -25,11 +25,11 @@ class App extends Component {
       .then(criteria => this.setState({ criteria }));
   }
 
-  onClick(e) {
-    e.preventDefault()
-    this.setState({
-      response: 'hi'
-    })
+  toggleVisibility(preview) {
+    if (this.state.response === preview) {
+      preview = false;
+    }
+    this.setState({ showSkills: preview })
   }
 
   render() {
