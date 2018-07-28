@@ -44,8 +44,7 @@ class App extends Component {
             toggleVisibility={this.toggleVisibility}/>
           </section>
           <Inputform />
-          <p>{this.onClick}</p>
-          <button type='submit'>Show Preview</button>
+         
           {/* <Preview application={this.state.application}/> */}
         </main>
         <Footer />

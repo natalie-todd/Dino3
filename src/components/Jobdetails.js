@@ -1,7 +1,7 @@
 import React from 'react';
 import Preview from './Preview';
 
-const Jobdetails = ({ showMessage, criteria, toggleVisibility }) => {
+const Jobdetails = ({ criteria }) => {
   if (!criteria || criteria.length < 1) return <h3>No Jobs Found</h3>;
   console.log(criteria);
     return (
