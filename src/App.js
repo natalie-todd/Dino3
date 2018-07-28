@@ -12,7 +12,7 @@ const dinoData = './listing.json'
 class App extends Component {
   state = {
     application: [],
-    response: false,
+    showMessage: false,
   }
 
   componentDidMount() {
@@ -26,7 +26,7 @@ class App extends Component {
   }
 
   toggleVisibility(preview) {
-    if (this.state.response === preview) {
+    if (this.state.showMessage === preview) {
       preview = false;
     }
     this.setState({ showSkills: preview })
@@ -39,12 +39,14 @@ class App extends Component {
         <main>
           <section id='job-details'>
             <h2>Job Details</h2>
-            <Jobdetails criteria={this.state.criteria} />
+            <Jobdetails criteria={this.state.criteria} 
+            showMessage={this.state.showMessage}
+            toggleVisibility={this.toggleVisibility}/>
           </section>
           <Inputform />
           <p>{this.onClick}</p>
           <button type='submit'>Show Preview</button>
-          <section />
+          {/* <Preview application={this.state.application}/> */}
         </main>
         <Footer />
       </React.Fragment>

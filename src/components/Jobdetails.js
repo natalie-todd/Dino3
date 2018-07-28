@@ -1,18 +1,19 @@
 import React from 'react';
+import Preview from './Preview';
 
-export default function Jobdetails({ data }) {
-  if (!data || data.length < 1) return <h3>No Jobs Found</h3>;
-  console.log(data);
+const Jobdetails = ({ showMessage, criteria, toggleVisibility }) => {
+  if (!criteria || criteria.length < 1) return <h3>No Jobs Found</h3>;
+  console.log(criteria);
     return (
       <ul id="job-details">
       {
-        data.map(data => (
-          <li key={data.id}>
-            <h4>{data.title}</h4>
-            <p>{data.description}</p>
+        criteria.map(criteria => (
+          <li key={criteria.id}>
+            <h4>{criteria.title}</h4>
+            <p>{criteria.description}</p>
           </li>
         ))}
     </ul >
     );
   }
-
+export default Jobdetails;
