@@ -1,19 +1,19 @@
 import React from 'react'
 
-const Inputform = ({ showMessage, toggleVisibility }) => {
-    return (
-        <form>
-            <label htmlFor='apply-here'>Apply Here:</label>
-            <textarea id='application-text'
-                rows='8'
-                cols='100' />
-            <input onClick={(e) =>
-                this.onItemClick(e)} id='submit' type='submit' value='Submit' />
-            <p>{this.onClick}</p>
-            {/* <button type='submit' onClick={() =>
-                toggleVisibility(preview)}>Show Preview</button> */}
-        </form>
-
-    )
+class Inputform extends Component {
+    render() {
+        return (
+            <form onSubmit={this.props.submit}>
+                <label htmlFor='apply-here'>Apply Here:</label>
+                <textarea id='application-text'
+                    rows='8'
+                    cols='100' 
+                    value={this.props.application.application}
+                    onChange={this.props.toggleVisibility}/>
+                <input id='submit' type='submit' value='Submit' />
+                <div id='message' className='status-bar'>{this.props.message}</div>
+            </form>
+        );
+    }
 }
 export default Inputform
