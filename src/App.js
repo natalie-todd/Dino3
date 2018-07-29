@@ -14,7 +14,7 @@ class App extends Component {
   state = {
     criteria: [],
     application: {},
-    showMessage: '',
+    showMessage: ''
   }
 
   componentDidMount() {
@@ -27,7 +27,7 @@ class App extends Component {
       .then(criteria => this.setState({ criteria }));
   }
 
-  toggleVisibility(event) {
+  toggleVisibility = (event) => {
     const application = this.state.application;
     application[event.target.name] = event.target.value;
     this.setState({ application: application, message: null })
@@ -35,7 +35,7 @@ class App extends Component {
 
   submit = event => {
     event.preventDefault();
-    if(this.state.application.application) {
+    if(!this.state.application.application) {
       this.setState({ message: "Please enter your application!" })
     } else {
       this.setState({

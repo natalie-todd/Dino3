@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 
 class Preview extends Component {
     state = {
@@ -21,7 +21,7 @@ class Preview extends Component {
         return (
             <div>
                 <button id='preview-toggle' className='preview'
-                    onClick={() => this.togglePreview()}>Preview</button>
+                    onClick={() => this.showPreview()}>Preview</button>
                 {!this.state.hidden && <section id='application-preview'>{this.props.application.application}
                 </section>}
             </div>
