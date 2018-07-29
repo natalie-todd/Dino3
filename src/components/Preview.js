@@ -23,7 +23,7 @@ class Preview extends Component {
         return (
             <div>
                 <button id='preview-toggle' className='preview'
-                    onClick={ () => this.togglePreview()}>Preview</button>
+                    onClick={ () => this.togglePreview()}>Show Preview</button>
                 {!this.state.hidden && <section id='application-preview'>{this.props.application.application}
                 </section>}
             </div>

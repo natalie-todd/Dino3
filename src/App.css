@@ -88,3 +88,14 @@ footer small {
   display: none;
 }
 
+#job-details li {
+  list-style-type: none;
+}
+
+ul#job-listings {
+  padding-left: 0px;
+}
+
+ul#job-details {
+  padding-left: 0px;
+}
