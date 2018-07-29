@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 
 class Inputform extends Component {
     render() {
@@ -6,10 +6,11 @@ class Inputform extends Component {
             <form onSubmit={this.props.submit}>
                 <label htmlFor='apply-here'>Apply Here:</label>
                 <textarea id='application-text'
+                    name='application'
                     rows='8'
-                    cols='100' 
+                    cols='100'
                     value={this.props.application.application}
-                    onChange={this.props.toggleVisibility}/>
+                    onChange={this.props.toggleVisibility} />
                 <input id='submit' type='submit' value='Submit' />
                 <div id='message' className='status-bar'>{this.props.message}</div>
             </form>

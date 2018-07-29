@@ -4,7 +4,7 @@ class Preview extends Component {
     state = {
         hidden: true
     }
-    showPreview = () => {
+    togglePreview = () => {
         if (!this.state.hidden) {
             return this.hidePreview()
         } else {
@@ -13,15 +13,17 @@ class Preview extends Component {
     }
     hidePreview = () => {
         this.setState({ hidden: true })
+        console.log('hiding')
     }
     showPreview = () => {
         this.setState({ hidden: false })
+        console.log('not hiding')
     }
     render() {
         return (
             <div>
                 <button id='preview-toggle' className='preview'
-                    onClick={() => this.showPreview()}>Preview</button>
+                    onClick={ () => this.togglePreview()}>Preview</button>
                 {!this.state.hidden && <section id='application-preview'>{this.props.application.application}
                 </section>}
             </div>

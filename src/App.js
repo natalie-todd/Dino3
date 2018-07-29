@@ -35,15 +35,11 @@ class App extends Component {
 
   submit = event => {
     event.preventDefault();
-    if(!this.state.application.application) {
-      this.setState({ message: "Please enter your application!" })
-    } else {
       this.setState({
         application: {},
         message: 'Your application was submitted!'
       })
     }
-  };
 
   render() {
     return (
@@ -52,9 +48,7 @@ class App extends Component {
         <main>
           <section id='job-details'>
             <h2>Job Details</h2>
-            <Jobdetails criteria={this.state.criteria}
-              showMessage={this.state.showMessage}
-              toggleVisibility={this.toggleVisibility} />
+            <Jobdetails criteria={this.state.criteria} />
           </section>
           <Inputform application={this.state.application} submit={this.submit} 
           toggleVisibility={this.toggleVisibility} message={this.state.message}/>
