@@ -6,13 +6,15 @@ import Header from './components/Header'
 import Jobdetails from './components/Jobdetails'
 import Inputform from './components/Inputform'
 import Footer from './components/Footer'
+import Preview from './components/Preview'
 
 const dinoData = './listing.json'
 
 class App extends Component {
   state = {
-    application: [],
-    showMessage: false,
+    criteria: [],
+    application: {},
+    showMessage: '',
   }
 
   componentDidMount() {
@@ -25,12 +27,23 @@ class App extends Component {
       .then(criteria => this.setState({ criteria }));
   }
 
-  toggleVisibility(preview) {
-    if (this.state.showMessage === preview) {
-      preview = false;
-    }
-    this.setState({ showSkills: preview })
+  toggleVisibility(event) {
+    const application = this.state.application;
+    application[event.target.name] = event.target.value;
+    this.setState({ application: application, message: null })
   }
+
+  submit = event => {
+    event.preventDefault();
+    if(this.state.application.application) {
+      this.setState({ message: "Please enter your application!" })
+    } else {
+      this.setState({
+        application: {},
+        message: 'Your application was submitted!'
+      })
+    }
+  };
 
   render() {
     return (
@@ -39,13 +52,13 @@ class App extends Component {
         <main>
           <section id='job-details'>
             <h2>Job Details</h2>
-            <Jobdetails criteria={this.state.criteria} 
-            showMessage={this.state.showMessage}
-            toggleVisibility={this.toggleVisibility}/>
+            <Jobdetails criteria={this.state.criteria}
+              showMessage={this.state.showMessage}
+              toggleVisibility={this.toggleVisibility} />
           </section>
-          <Inputform />
-         
-          {/* <Preview application={this.state.application}/> */}
+          <Inputform application={this.state.application} submit={this.submit} 
+          toggleVisibility={this.toggleVisibility} message={this.state.message}/>
+          <Preview application={this.state.application}/>
         </main>
         <Footer />
       </React.Fragment>
