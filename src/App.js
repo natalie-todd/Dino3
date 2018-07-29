@@ -35,11 +35,13 @@ class App extends Component {
 
   submit = event => {
     event.preventDefault();
-      this.setState({
-        application: {},
+    this.setState({
+      application: {
+        application: '',
+      },
         message: 'Your application was submitted!'
-      })
-    }
+    })
+  };
 
   render() {
     return (
@@ -50,9 +52,9 @@ class App extends Component {
             <h2>Job Details</h2>
             <Jobdetails criteria={this.state.criteria} />
           </section>
-          <Inputform application={this.state.application} submit={this.submit} 
-          toggleVisibility={this.toggleVisibility} message={this.state.message}/>
-          <Preview application={this.state.application}/>
+          <Inputform application={this.state.application} submit={this.submit}
+            toggleVisibility={this.toggleVisibility} message={this.state.message} />
+          <Preview application={this.state.application} />
         </main>
         <Footer />
       </React.Fragment>
