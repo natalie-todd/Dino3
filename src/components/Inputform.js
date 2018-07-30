@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class Inputform extends Component {
     render() {
@@ -17,4 +17,4 @@ class Inputform extends Component {
         );
     }
 }
-export default Inputform
+export default Inputform;

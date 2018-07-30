@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 import './App.css';
 
-import Header from './components/Header'
-import Jobdetails from './components/Jobdetails'
-import Inputform from './components/Inputform'
-import Footer from './components/Footer'
-import Preview from './components/Preview'
+import Header from './components/Header';
+import Jobdetails from './components/Jobdetails';
+import Inputform from './components/Inputform';
+import Footer from './components/Footer';
+import Preview from './components/Preview';
 
 const dinoData = './listing.json'
 
